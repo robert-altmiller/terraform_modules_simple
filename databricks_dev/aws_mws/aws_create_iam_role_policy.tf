@@ -72,12 +72,3 @@ resource "aws_iam_role_policy" "this" {
   role   = aws_iam_role.cross_account_role.id
   policy = data.databricks_aws_crossaccount_policy.this.json
 }
-
-# Attach and AWS policy to an IAM role
-resource "aws_iam_policy_attachment" "this" {
-  name       = "AmazonEC2FullAccess"
-  roles      = [aws_iam_role.cross_account_role.name]
-  policy_arn = "arn:aws:iam::aws:policy/AmazonEC2FullAccess"  # Use this if attaching an existing AWS managed policy
-}
-
-
