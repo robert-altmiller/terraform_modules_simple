@@ -1,0 +1,22 @@
+{
+  "schemas": {
+    "schema_dev": {
+      "catalog_name": "catalog_dev",
+      "resource_name": "schema_dev",
+      "storage_root": "s3://raqo-dev-bucket/",
+      "groups": {
+        "dev-contributors": ["USE_SCHEMA", "SELECT"],
+        "dev-readers": ["USE_SCHEMA", "SELECT"]
+      }
+    },
+    "schema_test": {
+      "catalog_name": "catalog_test",
+      "resource_name": "schema_test",
+      "storage_root": "s3://raqo-stage-bucket/",
+      "groups": {
+        "dev-contributors": ["USE_SCHEMA", "APPLY_TAG", "EXECUTE", "MODIFY", "READ_VOLUME", "REFRESH", "SELECT", "WRITE_VOLUME", "CREATE_FUNCTION", "CREATE_MATERIALIZED_VIEW", "CREATE_MODEL", "CREATE_TABLE", "CREATE_VOLUME"],
+        "dev-readers": ["USE_SCHEMA", "EXECUTE", "MODIFY", "READ_VOLUME", "REFRESH", "SELECT"]
+      }
+    }
+  }
+}

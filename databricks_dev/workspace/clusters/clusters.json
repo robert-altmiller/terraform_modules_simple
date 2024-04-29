@@ -1,0 +1,30 @@
+{
+    "clusters": {
+      "cluster_dev": {
+        "resource_name": "cluster_dev",
+        "groups": {
+
+          "dev-contributors": "CAN_ATTACH_TO",
+          "dev-readers": "CAN_ATTACH_TO"
+        },
+        "custom_tags": {
+          "TenantName" : "AWS", 
+          "ClusterType" : "General Purpose",
+          "Environment": "Dev"
+        },
+      "cluster_test": {
+        "resource_name": "cluster_test",
+        "groups": {
+          "dev-contributors": "CAN_ATTACH_TO",
+          "dev-readers": "CAN_ATTACH_TO"
+        },
+        "custom_tags": {
+          "TenantName" : "AWS", 
+          "ClusterType" : "General Purpose",
+          "Environment": "Dev"
+        }
+      }
+    }
+  }
+}
+  
