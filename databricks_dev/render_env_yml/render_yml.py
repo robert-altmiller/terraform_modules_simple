@@ -7,7 +7,7 @@ with open('env.yml.j2') as file:
 
 # Context variables (replace with your actual variables)
 context = {
-    'prefix': 'raqo'
+    'prefix': 'my'
 }
 
 # Render the template
