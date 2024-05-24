@@ -1,7 +1,8 @@
 # Databricks catalog grants
 resource "databricks_grants" "catalog_grants" {
   depends_on = [databricks_catalog.this]
-  for_each   = jsondecode(file("${path.module}/catalogs.json"))["catalogs"]
+  for_each     = local.catalogs_definitions["catalogs"]
+  #for_each   = jsondecode(file("${path.module}/catalogs.json"))["catalogs"]
   provider   = databricks.workspace
   catalog    = databricks_catalog.this[each.key].id
 

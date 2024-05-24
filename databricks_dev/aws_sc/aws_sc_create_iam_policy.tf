@@ -5,7 +5,6 @@ resource "aws_iam_user_policy_attachment" "this" {
   policy_arn = aws_iam_policy.s3_policy.arn
 }
 
-
 # Attach an IAM policy to an IAM role
 resource "aws_iam_policy_attachment" "this" {
   depends_on = [aws_iam_role.external_assume_role, aws_iam_policy.s3_policy]

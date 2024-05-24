@@ -1,6 +1,6 @@
 # Databricks cluster policy config settings
 locals {
-  decoded_cluster_policy_config = jsondecode(file("${path.module}/cluster_policies.json"))["cluster_policies"]
+  decoded_cluster_policy_config = local.cluster_policies_definitions["cluster_policies"]
   cluster_policy_config_settings = { 
     for key, config in local.decoded_cluster_policy_config : key => { 
       node_type_id = {

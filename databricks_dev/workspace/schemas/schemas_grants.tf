@@ -1,7 +1,7 @@
 # Databricks schema grants
 resource "databricks_grants" "schema_grants" {
   depends_on = [databricks_schema.this]
-  for_each   = jsondecode(file("${path.module}/schemas.json"))["schemas"]
+  for_each   = local.schemas_definitions["schemas"]
   provider   = databricks.workspace
   schema    = try("${each.value.catalog_name}.${each.value.resource_name}", "")
 

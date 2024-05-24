@@ -33,7 +33,8 @@ provider "databricks" {
 provider "databricks" {
   alias         = "workspace"
   host          = module.aws_mws.workspace_url
-  token         = module.aws_mws.workspace_token
+  client_id     = local.vars.dbricks.conn.client_id
+  client_secret = local.vars.dbricks.conn.client_secret
 }
 
 # Configure the TIME provider

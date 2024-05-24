@@ -1,7 +1,7 @@
 # Databricks cluster permissions
 resource "databricks_permissions" "cluster_permissions" {
   depends_on = [databricks_cluster.this]
-  for_each   = jsondecode(file("${path.module}/clusters.json"))["clusters"]
+  for_each   = local.clusters_definitions["clusters"]
   provider   = databricks.workspace
   cluster_id = databricks_cluster.this[each.key].id
 

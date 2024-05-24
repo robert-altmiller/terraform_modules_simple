@@ -56,21 +56,21 @@ module "ws_schemas_module" {
 
 # Databricks cluster policies module
 module "ws_cluster_policies_module" {
-  depends_on = [module.aws_mws]
+  # depends_on = [module.aws_mws]
   source = "./workspace/cluster_policies"
   providers = {
     databricks.workspace = databricks.workspace
   }
 }
 
-# Databricks clusters module
-module "ws_clusters_module" {
-  depends_on = [module.aws_mws]
-  source = "./workspace/clusters"
-  providers = {
-    databricks.workspace = databricks.workspace
-  }
-}
+# # Databricks clusters module
+# module "ws_clusters_module" {
+#   depends_on = [module.aws_mws]
+#   source = "./workspace/clusters"
+#   providers = {
+#     databricks.workspace = databricks.workspace
+#   }
+# }
 
 # Databricks notebooks module
 # module "ws_notebooks_module" {

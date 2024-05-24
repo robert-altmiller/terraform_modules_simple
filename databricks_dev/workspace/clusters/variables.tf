@@ -53,3 +53,34 @@ variable "cluster_max_workers" {
   description = "cluster auto termination minutes"
   default = 4
 }
+
+locals {
+  clusters_definitions = {
+    "clusters" = {
+      "cluster_dev" = {
+        resource_name = "cluster_dev_${local.vars.dbricks.general.prefix}",
+        groups = {
+          "dev-contributors" = "CAN_ATTACH_TO",
+          "dev-readers" = "CAN_ATTACH_TO"
+        },
+        custom_tags = {
+          "TenantName" = "AWS",
+          "ClusterType" = "General Purpose",
+          "Environment" = "Dev"
+        }
+      },
+      "cluster_test" = {
+        resource_name = "cluster_test_${local.vars.dbricks.general.prefix}",
+        groups = {
+          "dev-contributors" = "CAN_ATTACH_TO",
+          "dev-readers" = "CAN_ATTACH_TO"
+        },
+        custom_tags = {
+          "TenantName" = "AWS",
+          "ClusterType" = "General Purpose",
+          "Environment" = "Test"
+        }
+      }
+    }
+  }
+}

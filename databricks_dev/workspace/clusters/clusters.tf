@@ -25,7 +25,7 @@ data "databricks_spark_version" "gen_purpose_cluster_spark_version" {
 # Databricks cluster
 resource "databricks_cluster" "this" {
   provider                = databricks.workspace
-  for_each                = jsondecode(file("${path.module}/clusters.json"))["clusters"]
+  for_each                = local.clusters_definitions["clusters"]
   cluster_name            = try(each.value["resource_name"], "")
   spark_version           = data.databricks_spark_version.gen_purpose_cluster_spark_version.id
   node_type_id            = data.databricks_node_type.gen_purpose_cluster_worker.id

@@ -1,7 +1,7 @@
 # Databricks storage credentials grants
 resource "databricks_grants" "storage_credential_grants" {
   depends_on = [databricks_storage_credential.this]
-  for_each   = jsondecode(file("${path.module}/storage_credentials.json"))["storage_credentials"]
+  for_each   = local.storage_credentials_definitions["storage_credentials"]
   provider   = databricks.workspace
   storage_credential    = databricks_storage_credential.this[each.key].id
 

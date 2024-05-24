@@ -1,6 +1,6 @@
 resource "databricks_grants" "external_location_grants" {
   depends_on = [databricks_external_location.this]
-  for_each   = jsondecode(file("${path.module}/external_locations.json"))["external_locations"]
+  for_each   = local.external_locations_definitions["external_locations"]
   provider   = databricks.workspace
   external_location = databricks_external_location.this[each.key].id
 

@@ -11,3 +11,30 @@ variable "workspace_directory" {
   description = "cluster availability"
   default = ""
 }
+
+locals {
+  notebooks_definitions = {
+    "notebooks" = {
+      "notebooks_dev" = {
+        notebooks_base_path = "/dev",
+        notebooks_names_paths = {
+          "idbdw_full_load_template.dbc" = "/dev_dbc_archive/idbdw_full_load_template.dbc"
+        },
+        groups = {
+          "dev-contributors" = [""],  // Define specific permissions if needed
+          "dev-readers" = [""]
+        }
+      },
+      "notebooks_test" = {
+        notebooks_base_path = "/test",
+        notebooks_names_paths = {
+          "idbdw_incremental_load_template.dbc" = "/test_dbc_archive/idbdw_incremental_load_template.dbc"
+        },
+        groups = {
+          "dev-contributors" = [""],  // Define specific permissions if needed
+          "dev-readers" = [""]
+        }
+      }
+    }
+  }
+}
