@@ -36,3 +36,4 @@ terraform.rc
 
 # Ignore all local secrets and connection strings
 **/render_env_yml/env*
+**databricks_dev/render_env_yml*
